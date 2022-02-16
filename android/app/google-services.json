@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "237704684556",
+    "project_id": "poc-sign",
+    "storage_bucket": "poc-sign.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237704684556:android:29787c774c6d5931277a29",
+        "android_client_info": {
+          "package_name": "com.teste.poc_google_sign"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237704684556-ilnpprfp1r3prp5pk59349tetl0rnihp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.teste.poc_google_sign",
+            "certificate_hash": "59ff63114a499ec6e463aca41c48a6a211fbb7ea"
+          }
+        },
+        {
+          "client_id": "237704684556-9tesuujk8p3s5cvfa1d3nfnejbkeesgo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAZL6JZuDXO0xYvGx142r5yRjhp5yAE1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237704684556-9tesuujk8p3s5cvfa1d3nfnejbkeesgo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
