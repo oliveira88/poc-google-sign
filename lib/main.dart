@@ -1,29 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:poc_google_sign/home.dart';
 import 'package:poc_google_sign/user.dart' as usuario;
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'models/app_model.dart';
-
-Future<UserCredential> signInWithGoogle() async {
-  // Trigger the authentication flow
-  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-  // Obtain the auth details from the request
-  final GoogleSignInAuthentication? googleAuth =
-      await googleUser?.authentication;
-
-  // Create a new credential
-  final credential = GoogleAuthProvider.credential(
-    accessToken: googleAuth?.accessToken,
-    idToken: googleAuth?.idToken,
-  );
-  return await FirebaseAuth.instance.signInWithCredential(credential);
-}
 
 void main() async {
   GetIt.I.registerLazySingleton<AppModel>(() => AppModel());
@@ -48,7 +30,11 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
-            home: Home(),
+            initialRoute: '/',
+            routes: {
+              '/': (_) => const Home(),
+              '/user': (_) => const usuario.User(),
+            },
           );
         },
       ),

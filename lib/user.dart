@@ -1,27 +1,31 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/src/provider.dart';
-
-import 'dto/usuario_dto.dart';
-import 'models/app_model.dart';
+import 'commands/logout_google_command.dart';
 
 class User extends StatelessWidget {
   const User({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    UsuarioDto usuario =
-        context.select<AppModel, UsuarioDto?>((value) => value.usuario)!;
-
+    final usuario = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       body: Column(
         children: [
           CircleAvatar(
-            radius: 30,
-            backgroundImage: NetworkImage(usuario.photoUrl!),
+            radius: 50,
+            backgroundImage: NetworkImage(usuario.photoURL!),
           ),
-          Text('Nome: ${usuario.nome}'),
-          Text('Email: ${usuario.email}')
+          const SizedBox(height: 8),
+          Text('Nome: ${usuario.displayName}'),
+          const SizedBox(height: 8),
+          Text('Email: ${usuario.email}'),
+          const SizedBox(height: 8),
+          ElevatedButton(
+            onPressed: () async {
+              await LogoutGoogleCommand().execute();
+            },
+            child: const Text('Sair'),
+          ),
         ],
       ),
     );
